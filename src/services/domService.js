@@ -22,3 +22,11 @@ export const LINK_HOME_PAGE = document.querySelector(
 );
 
 //#endregion
+//#region slider
+
+export const SLIDER_IMAGE = document.querySelector("#slider-image");
+export const SLIDER_CREDITS = document.querySelector("#slider-credits");
+export const SLIDER_PREV_BTN = document.querySelector("#slider-prev-btn");
+export const SLIDER_NEXT_BTN = document.querySelector("#slider-next-btn");
+
+//#endregion
