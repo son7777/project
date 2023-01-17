@@ -65,7 +65,7 @@ class User {
 
   checkPassword(password) {
     const rg =
-      /(?=.*\d{1})(?=.*\d{1})(?=.*\d{1})(?=.*\d{1})(?=.*[A-Z]{1})(?=.*[a-z]{1})(?=.*[!@#$%^&*-]{1}).{7,20}/g;
+      /^(?=.*(?:\D*\d){4})(?=.*[A-Z]{1})(?=.*[a-z]{1})(?=.*[!@#$%^&-]{1}).{7,20}$/g;
     if (password.match(rg) !== null) return password;
     throw new Error(
       "the password must contain at least 1 uppercase letter in English, 1 lowercase letter in English. 4 numbers and one of the following characters: !@#$%^&*-"
