@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imgToUrl</title>
+</head>
+
+<body>
+    <input id="file_input" type='file' />
+    <img src="" alt="" id="son" style="display:none;">
+    <textarea id="dataUrl" rows="4" cols="100">
+
+</textarea>
+    <input name="inputsonnameanny" type="file" id="son2" multiple>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label for="fileInput">
+        <input type="file" id="fileInput" style="display: none;">
+        <span id="files-error-span" class="text-danger">please unpload images:</span>
+        <span>Choose</span>
+
+    </label>
+    <script>
+        let FILES_ERROR_SPAN;
+        const son = document.querySelector("#son");
+        const FILE_INPUT = document.querySelector("#file_input");
+        FILE_INPUT.addEventListener("change", e => {
+            readURL(e.target);
+        });
+        readURL = (input) => {
+            let src;
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.readAsDataURL(input.files[0]);
+                reader.addEventListener(
+                    "load",
+                    () => {
+                        src = reader.result;
+                        son.src = src;
+                        son.alt = input.files[0].name;
+                        console.log(son);
+                    }
+                );
+            }
+        }
+        let INPUT_FILE_MULTIPLE = document.querySelector("#son2");
+        let pic = {
+            "images": [{
+                "src": "m",
+                "alt": "s"
+            }]
+        };
+        INPUT_FILE_MULTIPLE.addEventListener("change", e => {
+
+            let inputER = [];
+            let check = null;
+            let allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+            for (let i = 0; i < INPUT_FILE_MULTIPLE.files.length; i++) {
+                let file = INPUT_FILE_MULTIPLE.files[i];
+                if (!allowedTypes.includes(file.type)) {
+                    inputER.push(i);
+                }
+            }
+            if (inputER.length) {
+                check = true;
+
+            } else {
+                readURL2(e.target, pic);
+            }
+            const element = {
+                input: e.target,
+                errorSpan: FILES_ERROR_SPAN,
+                validation: {
+                    "check": check
+                }
+            }
+
+        });
+        readURL2 = (input, pic) => {
+
+            if (input.files) {
+                for (let i = 0; i < input.files.length; i++) {
+                    let reader = new FileReader();
+                    reader.readAsDataURL(input.files[i]);
+                    reader.addEventListener("load", () => {
+                        pic.images.push({
+                            src: reader.result,
+                            alt: input.files[i].name
+                        });
+                    });
+                }
+            }
+        }
+        console.log(pic);
+        document.querySelector("#fileInput").addEventListener("load", () => {
+            this.nextElementSibling.innerHTML = "Choose";
+        });
+    </script>
+</body>
+
+</html>
