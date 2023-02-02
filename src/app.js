@@ -30,6 +30,7 @@ const onChangeSliderPic = (controller) => {
   counter = setCounter(pictures, counter, controller);
   render(pictures, counter);
 };
+
 let s = new Picture(pictures[0], pictures);
 console.log(pictures[0], pictures);
 s.price = 20;
@@ -37,7 +38,7 @@ console.log(s["_id"]);
 console.log(s);
 let u = new User(
   {
-    name: { first: "d", last: "a" },
+    name: { first: "s", last: "eo" },
     address: {},
     phone: "0509255955",
     email: "s@w.com",
@@ -45,13 +46,16 @@ let u = new User(
   },
   users
 );
-u.name = { first: "st", last: "ms" };
+console.log(u);
+u.name = { first: "s", last: "ms" };
 console.log(u);
 //#region האזנה לאירועים
 // ניתוב דפים
 HOME_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.HOME));
 ABOUT_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.ABOUT));
-CREATE_AD_P_LINK.addEventListener("click", () => onChangePage(PAGES.CREATE_AD));
+CREATE_AD_P_LINK.addEventListener("click", () =>
+  onChangePage(PAGES.CREATE_AD_PAGE)
+);
 LOGIN_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.LOGIN));
 LINK_HOME_PAGE.addEventListener("click", () => onChangePage(PAGES.HOME));
 

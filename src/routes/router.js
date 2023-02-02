@@ -19,12 +19,13 @@ export const onChangePage = (page) => {
     case PAGES.ABOUT:
       ABOUT_PAGE.className = "d-block";
       break;
-    case PAGES.CREATE_AD:
+    case PAGES.CREATE_AD_PAGE:
       CREATE_AD_PAGE.className = "d-block";
       break;
     case PAGES.LOGIN:
       LOGIN_PAGE.className = "d-block";
       break;
+
     default:
       ERROR_404_PAGE.classList = "d-block";
       break;

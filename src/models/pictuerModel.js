@@ -6,8 +6,8 @@ class Picture {
   #createdBy;
   #createdAt;
   #price;
+  images = [];
   likes = [];
-
   constructor(picture, array = []) {
     const { url, credit, alt, price } = picture;
     this.url = url;
@@ -17,6 +17,7 @@ class Picture {
     this.#createdAt = new Date();
     // this.generateId(array);
     this.#id = generateUniqNumber(array, "_id");
+    this.images[0] = { src: url, alt: alt };
   }
 
   // generateId(array) {
