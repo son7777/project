@@ -70,9 +70,6 @@
             }
             if (inputER.length) {
                 check = true;
-
-            } else {
-                readURL2(e.target, pic);
             }
             const element = {
                 input: e.target,
@@ -81,7 +78,6 @@
                     "check": check
                 }
             }
-
         });
         readURL2 = (input, pic) => {
 
@@ -102,6 +98,7 @@
         document.querySelector("#fileInput").addEventListener("load", () => {
             this.nextElementSibling.innerHTML = "Choose";
         });
+        //  readURL2(e.target, pic);
     </script>
 </body>
 
