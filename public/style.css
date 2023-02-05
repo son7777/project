@@ -33,3 +33,6 @@ main {
   bottom: 20px;
   right: 20px;
 }
+nav span:hover {
+  background-color: rgba(0, 163, 251, 0.607);
+}

@@ -31,6 +31,11 @@ const onChangeSliderPic = (controller) => {
   render(pictures, counter);
 };
 
+setInterval(() => {
+  counter = setCounter(pictures, counter, "next");
+  render(pictures, counter);
+}, 10000);
+
 let s = new Picture(pictures[0], pictures);
 console.log(pictures[0], pictures);
 s.price = 20;

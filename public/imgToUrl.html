@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <input type="text" id="input">
     <input id="file_input" type='file' />
     <img src="" alt="" id="son" style="display:none;">
     <textarea id="dataUrl" rows="4" cols="100">
@@ -70,6 +71,9 @@
             }
             if (inputER.length) {
                 check = true;
+
+            } else {
+                readURL2(e.target, pic);
             }
             const element = {
                 input: e.target,
@@ -78,6 +82,7 @@
                     "check": check
                 }
             }
+
         });
         readURL2 = (input, pic) => {
 
@@ -98,7 +103,17 @@
         document.querySelector("#fileInput").addEventListener("load", () => {
             this.nextElementSibling.innerHTML = "Choose";
         });
-        //  readURL2(e.target, pic);
+        //debouncing code
+        let timeoutId;
+        const debouncedInput = (event) => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                // code to be executed after debouncing
+                console.log("debounced")
+            }, 1000);
+        };
+        const input = document.querySelector("input");
+        input.addEventListener("input", debouncedInput);
     </script>
 </body>
 
