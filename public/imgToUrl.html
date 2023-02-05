@@ -34,6 +34,11 @@
         const FILE_INPUT = document.querySelector("#file_input");
         FILE_INPUT.addEventListener("change", e => {
             readURL(e.target);
+            console.log(globalPic);
+            //פונקצייה של גט מהלוקאל ואז רנדר על הדיב
+            //אם אין קבצים ימחוק מהלוקאל ינקה אותו 
+            displayITEMS();
+
         });
         readURL = (input) => {
             let src;
@@ -42,64 +47,86 @@
                 reader.readAsDataURL(input.files[0]);
                 reader.addEventListener(
                     "load",
+
                     () => {
-                        src = reader.result;
-                        son.src = src;
-                        son.alt = input.files[0].name;
-                        console.log(son);
+                        //במקום זה להכניס בסט כל פעם ללוקאל סטוראג
+                        globalPic.unshift({
+                            src: reader.result,
+                            alt: input.files[0].name
+                        });
+
+                        // src = reader.result;
+                        // son.src = src;
+                        // son.alt = input.files[0].name;
+                        // console.log(son);
                     }
                 );
+
             }
         }
         let INPUT_FILE_MULTIPLE = document.querySelector("#son2");
-        let pic = {
-            "images": [{
-                "src": "m",
-                "alt": "s"
-            }]
-        };
+        let globalPic = [];
         INPUT_FILE_MULTIPLE.addEventListener("change", e => {
 
             let inputER = [];
-            let check = null;
+            let check = false;
+            let checkLength = false;
             let allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-            for (let i = 0; i < INPUT_FILE_MULTIPLE.files.length; i++) {
-                let file = INPUT_FILE_MULTIPLE.files[i];
-                if (!allowedTypes.includes(file.type)) {
-                    inputER.push(i);
+            if (e.target.files) {
+                for (let i = 0; i < INPUT_FILE_MULTIPLE.files.length; i++) {
+                    let file = INPUT_FILE_MULTIPLE.files[i];
+                    if (!allowedTypes.includes(file.type)) {
+                        inputER.push(i);
+                    }
+                }
+                if (inputER.length) {
+                    check = true;
+                }
+                if (INPUT_FILE_MULTIPLE.files.length > 5) {
+
+                    checkLength = true;
                 }
             }
-            if (inputER.length) {
-                check = true;
 
-            } else {
-                readURL2(e.target, pic);
+            if (!check && !checkLength) {
+                //יצירת הדיב של האינפוט ניצור לפני דיב קונטיינר ונמלא אותו בדיב של קול 6 שיחלק ל2
+                //עם הכתובת החדשה  בתוך הדיב ניצור תמונה 
+                readURL2(e.target);
+                console.log(globalPic);
             }
+
             const element = {
                 input: e.target,
                 errorSpan: FILES_ERROR_SPAN,
                 validation: {
-                    "check": check
+                    "check": check,
+                    "checkLength": checkLength
                 }
             }
 
         });
-        readURL2 = (input, pic) => {
+        //לנסות להכניס רק עד 5 תמונות
+        // INPUT_FILE_MULTIPLE.files.length > 5
+        // להכניס את זה לסכמה איכשהו גודל
+        // אם לא סכמה אז תנאי מקדים כמו בסוג קובץ
+
+        readURL2 = (input) => {
 
             if (input.files) {
                 for (let i = 0; i < input.files.length; i++) {
                     let reader = new FileReader();
                     reader.readAsDataURL(input.files[i]);
                     reader.addEventListener("load", () => {
-                        pic.images.push({
-                            src: reader.result,
-                            alt: input.files[i].name
-                        });
+                        //במקום זה שמירה בלוקאל סטוראג
+                        // globalPic.push({
+                        //     src: reader.result,
+                        //     alt: input.files[i].name
+                        // });
                     });
                 }
             }
         }
-        console.log(pic);
+        console.log(globalPic);
         document.querySelector("#fileInput").addEventListener("load", () => {
             this.nextElementSibling.innerHTML = "Choose";
         });
