@@ -26,16 +26,26 @@ let counter = 0;
 render(pictures);
 
 //slider logic
-const onChangeSliderPic = (controller) => {
-  counter = setCounter(pictures, counter, controller);
-  render(pictures, counter);
+let intervalId;
+
+const startInterval = () => {
+  intervalId = setInterval(() => {
+    counter = setCounter(pictures, counter, "next");
+    render(pictures, counter);
+  }, 10000);
 };
 
-setInterval(() => {
-  counter = setCounter(pictures, counter, "next");
-  render(pictures, counter);
-}, 10000);
+const stopInterval = () => {
+  clearInterval(intervalId);
+};
 
+const onChangeSliderPic = (controller) => {
+  stopInterval();
+  counter = setCounter(pictures, counter, controller);
+  render(pictures, counter);
+  startInterval();
+};
+startInterval();
 let s = new Picture(pictures[0], pictures);
 console.log(pictures[0], pictures);
 s.price = 20;
