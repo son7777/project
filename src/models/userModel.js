@@ -21,7 +21,7 @@ class User {
   #isAdmin = false;
   #isBusiness = false;
   //#endregion
-//check
+  //check2
   constructor(user, users = []) {
     const {
       name: { first, last },
