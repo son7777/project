@@ -59,6 +59,10 @@
                                 </li>
                             </ul>
                             <ul id="logout-link-container" class="navbar-nav">
+                                <li class="nav-item"><span class="nav-link active cursor" aria-current="page"
+                                        id="add-to-favorite-page-link" tabindex="5"><img
+                                            src="./assets/images/add-to-favorite (1).png" alt="add-to-favorite"
+                                            width="38px"></span></li>
                                 <li class="nav-item dropdown">
                                     <span class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                                         role="button" aria-expanded="false">
@@ -85,6 +89,31 @@
         </nav>
     </header>
     <main>
+        <!-- השארת פרטים לחזרת נציג  -->
+        <div class=" popup center ">
+
+            <div class=" popup-inner col-11 col-md-10 col-xl-8 ">
+                <span class="close-icon-2"><i class="bi-x" style="color:whitesmoke;display:block"></i></span>
+                <div class="img">
+                    <img src="./assets/images/skyscraper.png" alt="home">
+                </div>
+
+                <div class="text  mb-4 mt-2 ">
+
+                    <div class="group ">
+
+                        <h4>Leave details</h4>
+                    </div>
+
+                    <form action="">
+                        <input type="text" placeholder="f-name" class="mt-3  mt-lg-5 mt-xl-6" minlength="2">
+                        <input type="text" placeholder="phone" minlength="2" maxlength="10">
+                        <input class="btn-p mt-3  mt-lg-5 mt-xl-6" type="button" value="send">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- //// -->
         <button><img id="myButton2" class="col-2 col-md-1 col-xl-1  " src="./assets/images/customerService.png"
                 alt=""></button>
 
@@ -209,7 +238,7 @@
     </footer>
     <script>
         let scrolled = false;
-        const button = document.querySelector("#myButton2");
+        let button = document.querySelector("#myButton2");
         button.style.display = "none";
         window.onscroll = () => {
             const windowHeight = window.innerHeight;
@@ -239,30 +268,39 @@
 
         };
 
-        async function fetchData(url) {
+        let popup = document.querySelector('.popup');
+        let close_icon2 = document.querySelector('.close-icon-2');
+        close_icon2.addEventListener("click", () => {
+            popup.style.left = "-1600px";
+        });
+        button.addEventListener('click', () => {
+            popup.style.left = "0px";
+        });
+
+        async function fetchDataJoke(url) {
             const fetc = await fetch(url);
             const data = await fetc.json();
-            console.log(data.message);
             let div = document.createElement('div');
             let div2 = document.createElement('div');
             let img = document.createElement('img');
             img.src = data.message;
+            img.alt = "random-dog-joke";
+            console.log(img);
+            //פה להכניס לדיב בעמוד אודותינו בתחזרו לטפל בכלב שמחכה או משהו
             document.body.appendChild(div2);
             div.append(img);
             img.style.width = "100%";
-            div.style.textAlign = "center";
+            img.style.borderRadius = "50%"
             div.classList = "col-12 col-md-10 col-xl-8";
             div2.classList = "center";
+            img.classList = "p-2";
             div.style.maxWidth = "500px";
-            div.style.maxHeight = "50%";
+            img.style.maxHeight = "300px";
             div2.append(div);
-            return data;
         }
-
-
-        fetchData(
+        fetchDataJoke(
             "https://dog.ceo/api/breeds/image/random"
-        );
+        )();
     </script>
 
 </body>

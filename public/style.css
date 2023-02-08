@@ -29,3 +29,88 @@ main {
 nav span:hover {
   background-color: rgba(0, 163, 251, 0.607);
 }
+/* // */
+.popup {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  transition: all ease 0.8s;
+  z-index: 100;
+  left: -1600px;
+  overflow: hidden;
+}
+.popup-inner {
+  max-height: 500px;
+  background: radial-gradient(white, rgba(0, 163, 251, 0.607));
+  overflow: hidden;
+  position: absolute;
+  top: 30%;
+}
+.popup-inner .img,
+.popup-inner .text {
+  width: 50%;
+  float: left;
+}
+.popup-inner .img img {
+  width: 100%;
+  height: 500px;
+  object-fit: 100% 100%;
+}
+.popup-inner .text {
+  padding: 100px 50px;
+}
+
+.popup-inner .text {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  color: whitesmoke;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: fantasy;
+}
+
+.popup-inner .text form {
+  text-align: center;
+  font-family: fantasy;
+}
+
+.popup-inner .text form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #9b9b9b;
+  letter-spacing: 2px;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  text-align: center;
+  outline: none;
+  font-weight: 500;
+  box-shadow: 0 12px 20px #00c2ff6e;
+}
+
+.popup-inner .text .btn-p {
+  border: none;
+  max-width: 210px;
+
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(55, 141, 216);
+  color: #fff;
+  font-size: 16px;
+  padding: 14px 39px;
+  border-radius: 50px;
+  letter-spacing: 4px;
+  box-shadow: 0 12px 20px #00c2ff6e;
+}
+.close-icon-2 {
+  position: absolute;
+  padding: 20px;
+  right: 0;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 500;
+}
+.popup-inner .text .btn-p:hover {
+  background-color: #00e2ff;
+}
