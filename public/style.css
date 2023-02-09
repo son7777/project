@@ -106,11 +106,51 @@ nav span:hover {
 .close-icon-2 {
   position: absolute;
   padding: 20px;
-  right: 0;
+  left: 50%;
   cursor: pointer;
   font-size: 30px;
   font-weight: 500;
 }
 .popup-inner .text .btn-p:hover {
   background-color: #00e2ff;
+}
+/*  */
+
+.ad-to-favorite-sidebar {
+  position: fixed;
+  background: radial-gradient(white, rgba(0, 163, 251, 0.85));
+  top: 0;
+  width: 350px;
+  height: 100%;
+  text-align: center;
+
+  box-shadow: 0 0 35px #00c2ff6e;
+  overflow-y: auto;
+  z-index: 100;
+  transition: all ease 0.5s;
+  right: -400px;
+}
+.ad-to-favorite-sidebar .ad-to-favorite-title h4 {
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 4px;
+  padding: 40px 30px 25px;
+  border-bottom: 1.8px solid #00e2ff;
+}
+.ad-to-favorite-sidebar .ad-to-favorite-body {
+  padding: 30px 0;
+}
+.close-icon {
+  position: absolute;
+  left: 20px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+/*  */
+.file-input-style {
+  background-color: rgb(55, 141, 216);
+  border: 1px solid black;
 }

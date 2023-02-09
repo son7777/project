@@ -60,8 +60,8 @@
                                 </li>
                             </ul>
                             <ul id="logout-link-container" class="navbar-nav">
-                                <li class="nav-item"><span class="nav-link active cursor" aria-current="page"
-                                        id="add-to-favorite-page-link" tabindex="6"><img
+                                <li class="nav-item"><span id="add-to-favorite-link" class="nav-link active cursor"
+                                        aria-current="page" tabindex="6"><img
                                             src="./assets/images/add-to-favorite (1).png" alt="add-to-favorite"
                                             width="38px"></span></li>
                                 <li class="nav-item dropdown">
@@ -107,20 +107,33 @@
                     </div>
 
                     <form action="">
-                        <input type="text" placeholder="f-name" class="mt-3  mt-lg-5 mt-xl-6" minlength="2">
-                        <input type="text" placeholder="phone" minlength="2" maxlength="10">
+                        <input id="f-name-input" type="text" placeholder="f-name" class="mt-3  mt-lg-5 mt-xl-6"
+                            minlength="2">
+                        <input id="phone-input" type="text" placeholder="phone" minlength="2" maxlength="10">
                         <input class="btn-p mt-3  mt-lg-5 mt-xl-6" type="button" value="send">
                     </form>
                 </div>
             </div>
         </div>
         <!-- //// -->
-        <button><img id="myButton2" class="col-2 col-md-1 col-xl-1  " src="./assets/images/customerService.png"
-                alt=""></button>
 
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
+            title="Click For Customer Service"><img id="customerServiceBtn" class="col-2 col-md-1 col-xl-1  "
+                src="./assets/images/customerService.png" alt="customerServiceBtn"></button>
 
+        <!--  -->
+        <div class="ad-to-favorite-sidebar">
+            <span class="close-icon"><i class="bi-x" style="color:whitesmoke;display:block"></i></span>
+            <div class="ad-to-favorite-title">
+                <h4>FAVORITES
+                </h4>
 
-
+            </div>
+            <div class="ad-to-favorite-body">
+                <div class="ad-to-favorite-item">
+                </div>
+            </div>
+        </div>
         <!-- דף הבית -->
         <div id="home-page" class="d-block showButton">
             <!-- הכותרת של דף הבית -->
@@ -177,26 +190,33 @@
 
             <div class="center">
                 <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
-                    <div>
-                        <label for="url-field">url</label>
-                        <input type="url" class="form-control mb-2" name="url" id="url-field" minlength="2" />
-                        <span id="url-error-span" class="text-danger"></span>
-                    </div>
 
+                    <div><span>image</span><br> <label for="fileInput" class="col-12 d-flex">
+
+                            <input type="file" class="form-control mb-2" id="fileInput" style="display: none;"
+                                name=" url">
+                            <span id="files-btn-span" class="form-control mb-2 ">please unpload
+                                images:</span>
+                            <span class="btn btn-primary mb-2 border-light">Choose</span>
+
+                        </label><span id="url-error-span" class="text-danger"></span></div>
                     <div>
                         <label for="alt-field">alt</label>
-                        <input type="text" class="form-control mb-2" name="alt" id="alt-field" minlength="2" />
+                        <input type="text" class="form-control mb-2 progress-bar bg-success" name="alt" id="alt-field"
+                            minlength="2" />
                         <span id="alt-error-span" class="text-danger"></span>
                     </div>
 
                     <div>
                         <label for="credit-field">Credit</label>
-                        <input type="text" class="form-control mb-2" name="credit" id="credit-field" minlength="2" />
+                        <input type="text" class="form-control mb-2 progress-bar progress-bar-striped bg-success"
+                            name="credit" id="credit-field" minlength="2" />
                         <span id="credit-error-span" class="text-danger"></span>
                     </div>
                     <div>
                         <label for="price-field">Price</label>
-                        <input type="number" class="form-control mb-2" name="price" id="price-field" minlength="2" />
+                        <input type="number" class="form-control mb-2 progress-bar progress-bar-striped bg-danger"
+                            name="price" id="price-field" minlength="2" />
                         <span id="price-error-span" class="text-danger"></span>
                     </div>
 
@@ -228,7 +248,8 @@
                     <h1 id="about-page-title" class="text-center display-4">ERROR 404</h1>
                     <h2 id="about-page-subtitle" class="fs-5">Page not found</h2>
                     <hr />
-                    <p id="return-to-home-page-link" class="cursor text-primary">click to return to home page</p>
+                    <p id="return-to-home-page-link" class="cursor text-primary">click to return to home
+                        page</p>
                 </div>
             </div>
         </div>
@@ -239,7 +260,7 @@
     </footer>
     <script>
         let scrolled = false;
-        let button = document.querySelector("#myButton2");
+        let button = document.querySelector("#customerServiceBtn");
         button.style.display = "none";
         window.onscroll = () => {
             const windowHeight = window.innerHeight;
@@ -259,7 +280,7 @@
                 button.style.position = "fixed";
                 button.style.zIndex = "0";
                 button.style.bottom = "260px";
-                button.style.right = "20px";
+                button.style.right = "13px";
                 button.style.transform = "rotate(-2deg)";
                 scrolled = true;
             } else if (scrollTop <= windowHeight * 0.05 && scrolled) {
@@ -268,11 +289,15 @@
             }
 
         };
+        let phon_input = document.querySelector("#phone-input");
+        let F_Name_input = document.querySelector("#f-name-input");
 
         let popup = document.querySelector('.popup');
         let close_icon2 = document.querySelector('.close-icon-2');
         close_icon2.addEventListener("click", () => {
             popup.style.left = "-1600px";
+            phon_input.value = "";
+            F_Name_input.value = "";
         });
         button.addEventListener('click', () => {
             popup.style.left = "0px";
@@ -301,7 +326,19 @@
         }
         fetchDataJoke(
             "https://dog.ceo/api/breeds/image/random"
-        )();
+        );
+        let addToFavorite = document.querySelector("#add-to-favorite-link");
+        let ad_to_favorite_sidebar = document.querySelector('.ad-to-favorite-sidebar');
+        let close_icon = document.querySelector('.close-icon');
+        addToFavorite.addEventListener("click", () => {
+            ad_to_favorite_sidebar.style.right = "0px";
+        });
+        close_icon.addEventListener("click", () => {
+            ad_to_favorite_sidebar.style.right = "-400px";
+        });
+        document.querySelector("#fileInput").addEventListener("load", () => {
+            this.nextElementSibling;
+        });
     </script>
 
 </body>
