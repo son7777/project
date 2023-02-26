@@ -21,6 +21,7 @@ main {
   background-color: #6c757da1;
   padding-left: 1rem;
 }
+/* כפתור שירות לקוחות */
 #myButton2 {
   position: fixed;
   bottom: 20px;
@@ -30,6 +31,7 @@ nav span:hover {
   background-color: rgba(0, 163, 251, 0.607);
 }
 /* // */
+/* פופאפ שירות לקוחות */
 .popup {
   position: fixed;
   width: 100%;
@@ -114,7 +116,8 @@ nav span:hover {
 .popup-inner .text .btn-p:hover {
   background-color: #00e2ff;
 }
-/*  */
+
+/* סיידבר הוספה למודעים */
 
 .ad-to-favorite-sidebar {
   position: fixed;
@@ -148,9 +151,4 @@ nav span:hover {
   top: 5px;
   cursor: pointer;
   font-size: 20px;
-}
-/*  */
-.file-input-style {
-  background-color: rgb(55, 141, 216);
-  border: 1px solid black;
 }
