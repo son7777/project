@@ -6,24 +6,14 @@ const useForm = () => {
   const validateTerm = (field, validation) => {
     let errors = [];
     const {
-      regex = null,
+      date = null,
       min = 0,
       max = 1_000_000_000_000,
       upperCase = null,
       lowerCase = null,
-      numMin = 0,
-      numMax = 1_000_000_000_000,
     } = validation;
 
     const { value: input } = field;
-
-    if (+input < +numMin) {
-      errors.push(`The field must be at least ${numMin}`);
-    }
-
-    if (+input > +numMax) {
-      errors.push(`The field cannot be more then ${numMax}`);
-    }
 
     if (input.length < +min) {
       errors.push(`The field must have at least ${min} characters long`);
@@ -45,18 +35,21 @@ const useForm = () => {
       }
     }
 
-    if (regex) {
-      if (typeof regex === "object") {
-        if (!input.match(regex.regex)) {
-          errors.push(regex.message);
-        }
-      } else if (!input.match(regex)) {
-        errors.push(`The field must contain the following regex: ${regex}`);
-      }
-    }
-
     if (input.match(/[^A-Za-z0-9א-ת\s!@#$%^*&_/:.-]/g)) {
       errors.push(`you used a forbidden character`);
+    }
+    const currentDate = new Date();
+
+    const options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    };
+    if (date) {
+      const formattedDate = currentDate.toLocaleDateString("en-GB", options);
+      if (date.split("-").reverse().join("/") < formattedDate) {
+        errors.push(`The date you selected has passed `);
+      }
     }
 
     return errors.length ? errors : null;
@@ -105,7 +98,6 @@ const useForm = () => {
   };
 
   return {
-    onCheckErrors,
     onChangeInputField,
     onClearFormFields,
   };

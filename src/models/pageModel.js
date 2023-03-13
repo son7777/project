@@ -1,8 +1,7 @@
 const PAGES = {
   HOME: "home-page",
-  ABOUT: "about-page",
-  CREATE_AD_PAGE: "create-ad-page",
-  LOGIN: "login-page",
+  TASKM: "taskm-page",
+  CREATE_COLOR_PAGE: "create-color-page-link",
   ERROR_404: "error-404",
 };
 

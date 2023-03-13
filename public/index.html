@@ -9,19 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="../src/app.js" type="module"></script>
-
     <title>SPA PROJECT</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bi-buildings-fill ps-2 fs-3 text-primary "
+        <nav class="navbar navbar-expand-lg navbar-dark bi-list-task ps-2 fs-3 text-primary "
             style="background-color: blue; font-family: fantasy;" aria-label="Fifth navbar example">
             <div class="container-fluid">
-
                 <span tabindex="1" id="home-link" class="navbar-brand cursor fs-3 hover"
                     style="font-family:fantasy;">HOME</span>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -29,56 +26,22 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="navbar-collapse collapse " id="navbarsExample05">
                     <div class="d-lg-flex justify-content-between col-12">
                         <div>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <span class="nav-link active cursor" aria-current="page" id="about-page-link"
-                                        tabindex="2">ABOUT</span>
-                                </li>
-                                <li id="add-pic-link-container" class="nav-item">
-                                    <span tabindex="3" class="nav-link active cursor" aria-current="page"
-                                        id="create-ad-page-link">ADD
-                                        AN AD</span>
+                                    <span class="nav-link active cursor" aria-current="page" id="taskM-page-link"
+                                        tabindex="2">TASK-M</span>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <ul id="login-link-container" class="d-none">
-                                <li class="nav-item">
-                                    <span class="nav-link active cursor" aria-current="page" id="signup-page-link"
-                                        tabindex="3">SIGNUP</span>
-                                </li>
-                                <li class="nav-item">
-                                    <span class="nav-link active cursor activ" aria-current="page" tabindex="5"
-                                        id="login-page-link">LOGIN</span>
-                                </li>
-                            </ul>
-                            <ul id="logout-link-container" class="navbar-nav">
-                                <li class="nav-item"><span id="add-to-favorite-link" class="nav-link active cursor"
-                                        aria-current="page" tabindex="6"><img
+                            <ul id="app-link-container" class=" d-none">
+                                <li class="nav-item"><span id="add-to-favorite-link" class="nav-link active cursor "
+                                        aria-current="page" tabindex="4">FAVORITES<img
                                             src="./assets/images/add-to-favorite (1).png" alt="add-to-favorite"
-                                            width="38px"></span></li>
-                                <li class="nav-item dropdown">
-                                    <span tabindex="7" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
-                                        role="button" aria-expanded="false">
-                                        <i class="bi bi-person-circle"></i>
-                                    </span>
-                                    <ul class="dropdown-menu" style="transform: translate(-100px, 10px)">
-                                        <li>
-                                            <span id="edit-user-link" class="dropdown-item cursor activ"
-                                                style="text-align:center;"><i class="bi bi-pencil-square"></i> EDIT
-                                                USER</span>
-                                        </li>
-                                        <li>
-                                            <span id="logout-link" class="dropdown-item cursor activ"
-                                                style="text-align:center;"><i class="bi bi-dash-circle"></i>
-                                                LOGOUT</span>
-                                        </li>
-                                    </ul>
-                                </li>
+                                            width="38px" class="ms-1"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -94,62 +57,55 @@
                 <div class="img">
                     <img src="./assets/images/skyscraper.png" alt="home">
                 </div>
-
                 <div class="text  mb-4 mt-2 ">
-
                     <div class="group ">
-
                         <h4>Leave details</h4>
                     </div>
-
                     <form action="">
                         <input id="f-name-input" type="text" placeholder="f-name" class="mt-3  mt-lg-5 mt-xl-6"
                             minlength="2" autocomplete="off">
                         <input id="phone-input" type="text" placeholder="phone" minlength="2" maxlength="10"
                             autocomplete="off">
                         <input class="btn-p mt-3  mt-lg-5 mt-xl-6" type="button" value="send">
-
                     </form>
                 </div>
             </div>
         </div>
         <!-- כפתור שירות לקוחות -->
         <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-            title="Click For Customer Service"><img id="customerServiceBtn" class="col-2 col-md-1 col-xl-1  "
-                src="./assets/images/customerService.png" alt="customerServiceBtn"></button>
-
+            title="Click For Customer Service"><img style="display: none;" id="customerServiceBtn"
+                class="col-2 col-md-1 col-xl-1  " src="./assets/images/customerService.png"
+                alt="customerServiceBtn"></button>
         <!-- סיידבר מועדפים -->
         <div class="ad-to-favorite-sidebar">
             <span class="close-icon"><i class="bi-x" style="color:whitesmoke;display:block"></i></span>
-            <div class="ad-to-favorite-title">
+            <div class="ad-to-favorite-title ">
                 <h4>FAVORITES
                 </h4>
-
             </div>
-            <div class="ad-to-favorite-body">
-                <div class="ad-to-favorite-item">
-                </div>
+            <div class="ad-to-favorite-body" id="ad-To-Favotite-Body">
             </div>
         </div>
         <!-- דף הבית -->
         <div id="home-page" class="d-block showButton">
             <!-- הכותרת של דף הבית -->
-            <div class="center pt-3 ">
+            <div class="center pt-3 mb-4">
                 <div class="col-12 col-md-10 col-xl-8">
-                    <h1 id="home-page-title" class="text-center display-4">HOME PAGE</h1>
-                    <h2 id="home-page-subtitle" class="fs-3">Here you can pictures</h2>
+                    <h1 id="home-page-title" class="text-center display-4 fw-bold mb-4 animatedRainbow">
+                        HOME PAGE</h1>
+                    <h2 id="home-page-subtitle" class="fs-3 animatedRainbow ps-2 ">TRY THE APPLICATION</h2>
                     <hr />
                 </div>
             </div>
-            <!-- מצגת מודעות נכסים -->
-            <div class="center">
-                <div class="col-12 col-md-10 col-xl-8">
+            <!-- מצגת משימות באפליקציה -->
+            <div class="center ">
+                <div class="col-12 col-md-10 col-xl-8 ">
                     <figure>
                         <img src="https://cdn.pixabay.com/photo/2022/03/12/19/14/sea-7064686_960_720.jpg" alt="beach"
-                            class="img-fluid  " width="100%" id="slider-image">
+                            class="img-fluid border " width="100%" id="slider-image">
 
-                        <figcaption class="figcaption">
-                            Photographed by: <span id="slider-credits">son-m</span>
+                        <figcaption class="figcaption ">
+                            NAME: <span id="slider-credits">son-m</span>
                         </figcaption>
                     </figure>
                 </div>
@@ -159,81 +115,111 @@
                 <div id="slider-next-btn" class="btn btn-outline-primary mx-2">Next</div>
             </div>
         </div>
-
-
-
-        <!-- דף אודות -->
-        <div id="about-page" class="d-none">
-            <!-- הכותרת של דף אודות -->
+        <!-- דף מנהל משימות -->
+        <div id="taskM-page" class="d-none">
+            <!-- הכותרת של דף מנהל משימות -->
             <div class="center pt-3 ">
                 <div class="col-12 col-md-10 col-xl-8">
-                    <h1 id="about-page-title" class="text-center display-4">ABOUT PAGE</h1>
-                    <h2 id="about-page-subtitle" class="fs-5">Here you can pictures</h2>
+                    <h1 id="about-page-title" class="text-center text-decoration-underline display-4  fw-bold mb-3
+                        animatedRainbow">Task Manager
+                    </h1>
+                    <h2 id="about-page-subtitle" class="ps-2 fs-3 css-flame-text  fw-bolder">Here you can create
+                        your task
+                        manager
+                    </h2>
                     <hr />
                 </div>
             </div>
-        </div>
-        <!-- דף יצירת מודעה  -->
-        <div id="create-new-ad" class="d-none">
-            <!-- הכותרת של דף יצירת מודעה  -->
-            <div class="center pt-3">
-                <div class="col-12 col-md-10 col-xl-8">
-                    <h1 id="create-pic-title" class="text-center display-4">CREATE NEW AD</h1>
-                    <h2 id="create-pic-subtitle" class="fs-5 ps-2">Here you publish a new ad</h2>
-                    <hr />
-                </div>
-            </div>
-
-            <div class="center">
+            <div class="center" id="create-body">
                 <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
-
-                    <div><span>image</span><br> <label for="fileInput" class="col-12 d-flex">
-
-                            <input type="file" class="form-control mb-2" id="fileInput" style="display: none;"
-                                name=" url">
-                            <span id="files-btn-span" class="form-control mb-2 ">please unpload
-                                images:</span>
-                            <span class="btn btn-primary mb-2 border-light">Choose</span>
-
-                        </label><span id="file-error-span" class="text-danger"></span></div>
                     <div>
-                        <label for="alt-field">alt</label>
-                        <input type="text" class="form-control mb-2 progress-bar bg-success" name="alt" id="alt-field"
-                            minlength="2" />
-                        <span id="alt-error-span" class="text-danger"></span>
-                    </div>
-
-                    <div>
-                        <label for="credit-field">Credit</label>
-                        <input type="text" class="form-control mb-2 progress-bar progress-bar-striped bg-success"
-                            name="credit" id="credit-field" minlength="2" />
-                        <span id="credit-error-span" class="text-danger"></span>
+                        <label for="description-field" class="text-primary fw-bolder fs-5">Description</label>
+                        <input type="text" class="form-control mb-2 " autocomplete="off" name="description"
+                            id="description-field" minlength="2"
+                            placeholder="one uppercase letter and one lowercase letter at least 2 letters min" />
+                        <span id="description-error-span" class="text-danger"></span>
                     </div>
                     <div>
-                        <label for="price-field">Price</label>
-                        <input type="number" class="form-control mb-2 progress-bar progress-bar-striped bg-danger"
-                            name="price" id="price-field" minlength="2" />
-                        <span id="price-error-span" class="text-danger"></span>
+                        <label for="due-date-field" class="text-primary fw-bolder fs-5">Due Date</label>
+                        <input type="date" class="form-control mb-2 text-start " name="due-date-field"
+                            id="due-date-field" minlength="2" />
+                        <span id="due-date-error-span" class="text-danger"></span>
                     </div>
-
-                    <input type="button" id="submit-create-pic-btn" value="Submit" class="btn btn-primary col-12 mb-2"
+                    <input type="button" id="submit-create-task-btn" value="Submit" class="btn btn-primary col-12 mb-2"
                         disabled />
-                    <input type="button" id="cancel-create-pic-btn" value="Cancel"
+                    <input type="button" id="cancel-create-task-btn" value="Cancel"
                         class="btn btn-outline-danger col-12 mb-2" />
+
+
                 </form>
             </div>
-        </div>
+            <div class=" d-none center" id="edit-body">
+                <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
+                    <div>
+                        <label for="description-field" class="text-primary fw-bolder fs-6">Description</label>
+                        <input type="text" class="form-control mb-2 " autocomplete="off" name="description-edit"
+                            id="description-edit-field" minlength="2" placeholder="one uppercase letter and one
+                            lowercase letter at least 2 letters min" />
+                        <span id="description-edit-error-span" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label for="due-date-field" class="text-primary fw-bolder fs-6">Due Date</label>
+                        <input type="date" class="form-control mb-2 text-start " name="due-date-edit-field"
+                            id="due-date-edit-field" minlength="2" />
+                        <span id="due-date-edit-error-span" class="text-danger"></span>
+                    </div>
+                    <input type="button" id="submit-create-task-edit-btn" value="Submit"
+                        class="btn btn-primary col-12 mb-2" disabled />
+                    <input type="button" id="cancel-create-task-edit-btn" value="Cancel"
+                        class="btn btn-outline-danger col-12 mb-2" />
 
-        <!-- דף התחברות -->
-        <div id="login-page" class="d-none">
-            <!-- הכותרת של דף התחברות  -->
-            <div class="center pt-3">
-                <div class="col-12 col-md-10 col-xl-8">
-                    <h1 id="login-title" class="text-center display-4">LOGIN PIC PAGE</h1>
-                    <h2 id="login-subtitle" class="fs-5">Here you can pictures</h2>
-                    <hr />
-                </div>
+
+                </form>
             </div>
+            <div class="center">
+                <div class=" col-12 col-md-10 col-xl-8 border p-2 rounded  mb-3">
+                    <div class=" col-12 mb-3 fs-2 fw-bolder text-center border-bottom animatedRainbow ">
+                        YOUR TASKS
+                    </div>
+                    <div class="center mb-2 ">
+                        <i id="sort-down-icon"
+                            class="bi bi-sort-alpha-down-alt fs-3 p-1 cursor bg-opacity-50 bg-primary mx-2"></i>
+                        <i id="sort-up-icon" class="bi bi-sort-alpha-down fs-3 p-1 cursor bg-opacity-50 bg-primary"></i>
+                    </div>
+                    <!-- שדה החיפוש -->
+                    <div id="search-bar-container">
+                        <div class="container mb-2 ">
+                            <input type="text" placeholder="Search tasks"
+                                class="form-control text-center fs-5 fw-bold text-primary" id="search-input">
+                        </div>
+                    </div>
+
+                    <input type="button" id="activ-tasks-btn" value="CLICK-TO-SHOW-ONLY-ACTIV-TASKS"
+                        class="btn btn-dark col-12 mb-2" />
+                    <div id="empty-tasks-list"
+                        style="font-weight: bolder;color: red; margin-bottom: 10px; font-size: 20px;"
+                        class=" text-center d-none">
+                        There are no tasks to display...
+                    </div>
+                    <div id="table" class="d-none ">
+                        <table class="container table bg-opacity-25 bg-primary">
+                            <thead>
+                                <th class="col-sm-1 ">#</th>
+                                <th class="col-sm-5">Description</th>
+                                <th class="col-sm-2" style="padding-left:18px;">Due Date</th>
+                                <th class="col-sm-1">Status</th>
+                                <th class="col-sm-1">Edit</th>
+                                <th class="col-sm-1">Delete</th>
+                                <th class="col-sm-1">Like</th>
+                            </thead>
+                            <tbody class="" id="tasks-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
         <!-- דף שגיאה 404 -->
@@ -251,92 +237,9 @@
         </div>
 
     </main>
-    <footer class="border-top pt-3 center " style="background-color: blue;">
+    <footer class="border-top pt-3 center  " style="background-color: blue; ">
         <p class="text-light">Created By son mizrahi &copy;</p>
     </footer>
-    <script>
-        let scrolled = false;
-        let button = document.querySelector("#customerServiceBtn");
-        button.style.display = "none";
-        window.onscroll = () => {
-            const windowHeight = window.innerHeight;
-            const body = document.body;
-            const html = document.documentElement;
-            const docHeight = Math.max(
-                body.scrollHeight,
-                body.offsetHeight,
-                html.clientHeight,
-                html.scrollHeight,
-                html.offsetHeight
-            );
-
-            const scrollTop = window.pageYOffset || html.scrollTop;
-            if (scrollTop > windowHeight * 0.05 && !scrolled) {
-                button.style.display = "block";
-                button.style.position = "fixed";
-                button.style.zIndex = "0";
-                button.style.bottom = "260px";
-                button.style.right = "13px";
-                button.style.transform = "rotate(-2deg)";
-                scrolled = true;
-            } else if (scrollTop <= windowHeight * 0.05 && scrolled) {
-                button.style.display = "none";
-                scrolled = false;
-            }
-
-        };
-        let phon_input = document.querySelector("#phone-input");
-        let F_Name_input = document.querySelector("#f-name-input");
-
-        let popup = document.querySelector('.popup');
-        let close_icon2 = document.querySelector('.close-icon-2');
-        close_icon2.addEventListener("click", () => {
-            popup.style.left = "-1600px";
-            phon_input.value = "";
-            F_Name_input.value = "";
-        });
-        button.addEventListener('click', () => {
-            popup.style.left = "0px";
-        });
-
-        async function fetchDataJoke(url) {
-            const fetc = await fetch(url);
-            const data = await fetc.json();
-            let div = document.createElement('div');
-            let div2 = document.createElement('div');
-            let img = document.createElement('img');
-            img.src = data.message;
-            img.alt = "random-dog-joke";
-            console.log(img);
-            //פה להכניס לדיב בעמוד אודותינו בתחזרו לטפל בכלב שמחכה או משהו
-            document.body.appendChild(div2);
-            div.append(img);
-            img.style.width = "100%";
-            img.style.borderRadius = "50%"
-            div.classList = "col-12 col-md-10 col-xl-8";
-            div2.classList = "center";
-            img.classList = "p-2";
-            div.style.maxWidth = "500px";
-            img.style.maxHeight = "300px";
-            div2.append(div);
-        }
-        fetchDataJoke(
-            "https://dog.ceo/api/breeds/image/random"
-        );
-        let addToFavorite = document.querySelector("#add-to-favorite-link");
-        let ad_to_favorite_sidebar = document.querySelector('.ad-to-favorite-sidebar');
-        let close_icon = document.querySelector('.close-icon');
-        addToFavorite.addEventListener("click", () => {
-            ad_to_favorite_sidebar.style.right = "0px";
-        });
-        close_icon.addEventListener("click", () => {
-            ad_to_favorite_sidebar.style.right = "-400px";
-        });
-        document.querySelector("#fileInput").addEventListener("load", () => {
-            this.nextElementSibling;
-        });
-    </script>
-
 </body>
 
 </html>

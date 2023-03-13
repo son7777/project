@@ -1,49 +1,90 @@
 //#region nav links
 export const HOME_PAGE_LINK = document.querySelector("#home-link");
-export const ABOUT_PAGE_LINK = document.querySelector("#about-page-link");
-
-export const CREATE_AD_P_LINK = document.querySelector("#create-ad-page-link");
-export const LOGIN_PAGE_LINK = document.querySelector("#login-page-link");
+export const TASKM_PAGE_LINK = document.querySelector("#taskM-page-link");
+export const APP_LINK = document.querySelector("#app-link-container");
 //#endregion
-
 //#region pages
 export const HOME_PAGE = document.querySelector("#home-page");
-export const ABOUT_PAGE = document.querySelector("#about-page");
-export const CREATE_AD_PAGE = document.querySelector("#create-new-ad");
-export const LOGIN_PAGE = document.querySelector("#login-page");
+export const TASKM_PAGE = document.querySelector("#taskM-page");
+
 export const ERROR_404_PAGE = document.querySelector("#error-404-page");
-
 //#endregion
-
 //#region links
-
 export const LINK_HOME_PAGE = document.querySelector(
   "#return-to-home-page-link"
 );
-
 //#endregion
 //#region slider
-
 export const SLIDER_IMAGE = document.querySelector("#slider-image");
 export const SLIDER_CREDITS = document.querySelector("#slider-credits");
 export const SLIDER_NEXT_BTN = document.querySelector("#slider-next-btn");
 export const SLIDER_PREV_BTN = document.querySelector("#slider-prev-btn");
+//#endregion
+//#region create task form
+export const DESCRIPTION_CREATE_TASK_FIELD =
+  document.querySelector("#description-field");
+export const DESCRIPTION_CREATE_TASK_ERROR = document.querySelector(
+  "#description-error-span"
+);
+export const DUE_DATE_CREATE_TASK_FIELD =
+  document.querySelector("#due-date-field");
+export const DUE_DATE_CREATE_TASK_ERROR = document.querySelector(
+  "#due-date-error-span"
+);
+export const SUBMIT_CREATE_TASK_BTN = document.querySelector(
+  "#submit-create-task-btn"
+);
+export const CANCEL_BTN = document.querySelector("#cancel-create-task-btn");
+export const ACTIV_TASK_BTN = document.querySelector("#activ-tasks-btn");
+export const DESCRIPTION_EDIT_TASK_FIELD = document.querySelector(
+  "#description-edit-field"
+);
+export const DESCRIPTION_EDIT_TASK_ERROR = document.querySelector(
+  "#description-edit-error-span"
+);
+export const DUE_DATE_EDIE_TASK_FIELD = document.querySelector(
+  "#due-date-edit-field"
+);
+export const DUE_DATE_EDIT_TASK_ERROR = document.querySelector(
+  "#due-date-error-span"
+);
+export const SUBMIT_EDIT_TASK_BTN = document.querySelector(
+  "#submit-create-task-edit-btn"
+);
+export const CANCEL_BTN_EDIT = document.querySelector(
+  "#cancel-create-task-edit-btn"
+);
+export const EDIT_BODY = document.querySelector("#edit-body");
+export const CREATE_BODY = document.querySelector("#create-body");
 
 //#endregion
-//#region create pic form
-export const URL_CREATE_PIC_FIELD = document.querySelector("#url-field");
-export const URL_CREATE_PIC_ERROR = document.querySelector("#url-error-span");
-export const ALT_CREATE_PIC_FIELD = document.querySelector("#alt-field");
-export const ALT_CREATE_PIC_ERROR = document.querySelector("#alt-error-span");
-export const CREDIT_CREATE_PIC_FIELD = document.querySelector("#credit-field");
-export const CREDIT_CREATE_PIC_ERROR =
-  document.querySelector("#credit-error-span");
-export const PRICE_CREATE_PIC_FIELD = document.querySelector("#price-field");
-export const PRICE_CREATE_PIC_ERROR =
-  document.querySelector("#price-error-span");
 
-export const SUBMIT_CREATE_PIC_BTN = document.querySelector(
-  "#submit-create-pic-btn"
+//#region  task list
+export const EMPTY_TASK_LIST = document.querySelector("#empty-tasks-list");
+export const TASK_LIST = document.querySelector("#tasks-list");
+export const TABLE = document.querySelector("#table");
+//#endregion
+//#region popups
+export const button = document.querySelector("#customerServiceBtn");
+export const phon_input = document.querySelector("#phone-input");
+export const F_Name_input = document.querySelector("#f-name-input");
+export const popup = document.querySelector(".popup");
+export const close_icon2 = document.querySelector(".close-icon-2");
+export const addToFavorite = document.querySelector("#add-to-favorite-link");
+export const addToFavoriteBody = document.querySelector("#ad-To-Favotite-Body");
+export const ad_to_favorite_sidebar = document.querySelector(
+  ".ad-to-favorite-sidebar"
 );
-export const CANCEL_BTN = document.querySelector("#cancel-create-pic-btn");
+export const close_icon = document.querySelector(".close-icon");
+
+//#endregion
+//#region controllers
+export const SORT_DOWN_ICON = document.querySelector("#sort-down-icon");
+export const SORT_UP_ICON = document.querySelector("#sort-up-icon");
+//#endregion
+//#region search_bar
+export const SEARCHBAR_CONTAINER = document.querySelector(
+  "#search-bar-container"
+);
+export const SEARCH_BAR = document.querySelector("#search-input");
 //#endregion
