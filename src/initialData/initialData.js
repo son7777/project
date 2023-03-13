@@ -9,12 +9,12 @@ const initialData = () => {
       {
         url: "../public/assets/images/popup.png",
         alt: "popup",
-        credit: "popup",
+        credit: "POPUP",
       },
       {
         url: "../public/assets/images/favorites.png",
         alt: "favorites",
-        credit: "favorites",
+        credit: "FAVORITES",
       },
     ],
   };
