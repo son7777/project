@@ -7,14 +7,14 @@ const initialData = () => {
         credit: "TASK MANAGER",
       },
       {
-        url: "https://cdn.pixabay.com/photo/2021/12/21/08/29/owl-6884773_960_720.jpg",
-        alt: "owl",
-        credit: "Jessica Rabbit",
+        url: "../public/assets/images/popup.png",
+        alt: "popup",
+        credit: "popup",
       },
       {
-        url: "https://cdn.pixabay.com/photo/2022/02/26/07/06/butterfly-7035308_960_720.jpg",
-        alt: "butterfly",
-        credit: "Tyra Banks",
+        url: "../public/assets/images/favorites.png",
+        alt: "favorites",
+        credit: "favorites",
       },
     ],
   };

@@ -36,7 +36,6 @@ export class TaskManager {
   deleteTask(ID) {
     this.tasks = this.tasks.filter((t) => t.id !== ID);
   }
-
   getUnCompletedTasks() {
     let newArray = this.tasks
       .filter((task) => task.status === TaskStatus.Uncompleted)
