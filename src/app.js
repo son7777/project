@@ -18,6 +18,12 @@ import {
   SORT_UP_ICON,
   SUBMIT_CREATE_TASK_BTN,
   ACTIV_TASK_BTN,
+  SUBMIT_EDIT_TASK_BTNN,
+  CREATE_BODY,
+  EDIT_BODYY,
+  EDIT_BODY,
+  DESCRIPTION_EDIT_TASK_FIELDD,
+  DUE_DATE_EDIE_TASK_FIELDD,
 } from "./services/domService.js";
 import PAGES from "./models/pageModel.js";
 import { renderSlider as render } from "./services/renderSlider.js";
@@ -30,6 +36,9 @@ import {
   onEditTask,
   onCancelEditTask,
   onRender,
+  editTaskListenerss,
+  onefNewTask,
+  handleCancelCreateTaskk,
 } from "./services/tasksService.js";
 import { TaskManager, Task } from "./models/taskManagerModel.js";
 import renderTable from "./services/renderTable.js";
@@ -76,7 +85,6 @@ if (getItemFromLocalStorage("taskM")) {
 export let TASK_MANAGER = new TaskManager();
 let favorites_Tasks;
 TASK_MANAGER.tasks = [...tasks];
-console.log(TASK_MANAGER.tasks);
 //#region הגדרת משתנים גלובליים
 let { pictures } = initialData();
 let counter = 0;
@@ -120,7 +128,6 @@ if (tasks.length) {
   onRender(tasks);
 }
 renderFavorites(favorites_Tasks);
-console.log(favorites_Tasks);
 //#region האזנה לאירועים
 // ניתוב דפים
 HOME_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.HOME));
@@ -129,8 +136,6 @@ TASKM_PAGE_LINK.addEventListener("click", () => {
   handleCreatTask();
   renderTable(tasks);
   onRender(tasks);
-
-  // renderFavorites(favorites_Tasks);
 });
 
 LINK_HOME_PAGE.addEventListener("click", () => onChangePage(PAGES.HOME));
@@ -161,8 +166,17 @@ export const handleSubmitNewTask = () => {
   onRender(tasks);
   handleCancelCreateTask();
 };
+export const handleSubmitNewTaskk = () => {
+  tasks = onefNewTask(tasks);
+  renderTable(tasks);
+  onRender(tasks);
+  handleCancelCreateTaskk();
+};
 SUBMIT_CREATE_TASK_BTN.addEventListener("click", () => {
   handleSubmitNewTask(tasks);
+});
+SUBMIT_EDIT_TASK_BTNN.addEventListener("click", () => {
+  handleSubmitNewTaskk(tasks);
 });
 
 //#endregion
@@ -212,6 +226,25 @@ export const favdel = (id) => {
   renderFavorites(favorites_Tasks);
   console.log(favorites_Tasks);
   setItemInLocalStorage("fav", JSON.stringify(favorites_Tasks));
+};
+export const handleAddFav = (id) => {
+  CREATE_BODY.classList = "d-none";
+  EDIT_BODY.className = "d-none";
+  EDIT_BODYY.className = "d-block";
+  EDIT_BODYY.className = "center";
+  editTaskListenerss();
+  const favorite_Task = favorites_Tasks.find((f) => f.id === id);
+  const { description, dueDate } = favorite_Task;
+
+  DESCRIPTION_EDIT_TASK_FIELDD.value = "";
+  DESCRIPTION_EDIT_TASK_FIELDD.value = description;
+  DESCRIPTION_EDIT_TASK_FIELDD.dispatchEvent(new Event("change"));
+  DESCRIPTION_EDIT_TASK_FIELDD.value = "";
+  DESCRIPTION_EDIT_TASK_FIELDD.value = description;
+  DUE_DATE_EDIE_TASK_FIELDD.value = "";
+  DUE_DATE_EDIE_TASK_FIELDD.value = dueDate.split("/").reverse().join("-");
+  DUE_DATE_EDIE_TASK_FIELDD.dispatchEvent(new Event("change"));
+  ad_to_favorite_sidebar.style.right = "-400px";
 };
 
 //#region Edit Tasks

@@ -13,6 +13,13 @@ import {
   CANCEL_BTN_EDIT,
   EDIT_BODY,
   CREATE_BODY,
+  DESCRIPTION_EDIT_TASK_FIELDD,
+  DESCRIPTION_EDIT_TASK_ERRORR,
+  DUE_DATE_EDIE_TASK_FIELDD,
+  DUE_DATE_EDIT_TASK_ERRORR,
+  SUBMIT_EDIT_TASK_BTNN,
+  EDIT_BODYY,
+  CANCEL_BTN_EDITtT,
 } from "./domService.js";
 import useForm from "./formService.js";
 import { Task } from "../models/taskManagerModel.js";
@@ -40,6 +47,7 @@ const cancelEH = () => {
   }
 };
 CANCEL_BTN_EDIT.addEventListener("click", cancelEH);
+CANCEL_BTN_EDITtT.addEventListener("click", cancelEH);
 
 export const handleCreatTask = () => {
   createTaskFromFieldsListeners();
@@ -53,6 +61,11 @@ export const handleCancelCreateTask = () => {
   ];
   onClearFormFields(SUBMIT_CREATE_TASK_BTN, fields, errorSpans);
 };
+export const handleCancelCreateTaskk = () => {
+  const fields = [DESCRIPTION_EDIT_TASK_FIELDD, DUE_DATE_EDIE_TASK_FIELDD];
+  const errorSpans = [DESCRIPTION_EDIT_TASK_ERRORR, DUE_DATE_EDIT_TASK_ERRORR];
+  onClearFormFields(SUBMIT_EDIT_TASK_BTNN, fields, errorSpans);
+};
 
 export const onCreateNewTask = (tasks) => {
   let status = "Uncompleted";
@@ -61,6 +74,24 @@ export const onCreateNewTask = (tasks) => {
     const task = new Task(
       DESCRIPTION_CREATE_TASK_FIELD.value,
       DUE_DATE_CREATE_TASK_FIELD.value.split("-").reverse().join("/"),
+      status,
+      tasks
+    );
+    newArray.push(task);
+    setItemInLocalStorage("taskM", JSON.stringify(newArray));
+    return newArray;
+  } catch (error) {
+    console.log(error.message);
+    return [];
+  }
+};
+export const onefNewTask = (tasks) => {
+  let status = "Uncompleted";
+  let newArray = [...tasks];
+  try {
+    const task = new Task(
+      DESCRIPTION_EDIT_TASK_FIELDD.value,
+      DUE_DATE_EDIE_TASK_FIELDD.value.split("-").reverse().join("/"),
       status,
       tasks
     );
@@ -85,22 +116,31 @@ export const mapToModel = (tasks, id) => {
   let task = tasks.find((t) => t.id === id);
   if (!task) throw new Error(`No tasks with id: ${id} was found`);
   const { description, dueDate } = task;
+  DESCRIPTION_EDIT_TASK_FIELD.value = "";
   DESCRIPTION_EDIT_TASK_FIELD.value = description;
+  DESCRIPTION_EDIT_TASK_FIELD.dispatchEvent(new Event("change"));
+  DESCRIPTION_EDIT_TASK_FIELD.value = "";
+  DESCRIPTION_EDIT_TASK_FIELD.value = description;
+  DUE_DATE_EDIE_TASK_FIELD.value = "";
   DUE_DATE_EDIE_TASK_FIELD.value = dueDate.split("/").reverse().join("-");
+  DUE_DATE_EDIE_TASK_FIELD.dispatchEvent(new Event("change"));
 };
 export const handleEditTask = (tasks, id) => {
   CREATE_BODY.classList = "d-none";
   EDIT_BODY.className = "d-block";
+  EDIT_BODYY.className = "d-none";
   EDIT_BODY.className = "center";
   editTaskListeners();
   mapToModel(tasks, id);
   const anonymousFunc = () => onSubmitEditTask(id);
   SUBMIT_EDIT_TASK_BTN.addEventListener("click", anonymousFunc);
 };
+
 export const onCancelEditTask = () => {
   const errorsSpans = [DESCRIPTION_EDIT_TASK_ERROR, DUE_DATE_EDIT_TASK_ERROR];
   onClearFormFields(SUBMIT_EDIT_TASK_BTN, [], errorsSpans);
   EDIT_BODY.className = "d-none";
+  EDIT_BODYY.className = "d-none";
   CREATE_BODY.classList = "d-block";
   CREATE_BODY.classList = "center";
   handleCreatTask();
@@ -133,7 +173,7 @@ export const createTaskFromFieldsListeners = () => {
     onChangeInputField(schema, element, SUBMIT_CREATE_TASK_BTN);
   });
 };
-const editTaskListeners = () => {
+export const editTaskListeners = () => {
   const schema = ["description-edit", "due-date-edit-field"];
   DESCRIPTION_EDIT_TASK_FIELD.addEventListener("change", (e) => {
     const validation = {
@@ -158,6 +198,33 @@ const editTaskListeners = () => {
       validation,
     };
     onChangeInputField(schema, element, SUBMIT_EDIT_TASK_BTN);
+  });
+};
+export const editTaskListenerss = () => {
+  const schema = ["description-editt", "due-date-edit-fieldd"];
+  DESCRIPTION_EDIT_TASK_FIELDD.addEventListener("change", (e) => {
+    const validation = {
+      min: 2,
+      upperCase: true,
+      lowerCase: true,
+    };
+    const element = {
+      input: e.target,
+      errorSpan: DESCRIPTION_EDIT_TASK_ERRORR,
+      validation,
+    };
+    onChangeInputField(schema, element, SUBMIT_EDIT_TASK_BTNN);
+  });
+  DUE_DATE_EDIE_TASK_FIELDD.addEventListener("change", (e) => {
+    const validation = {
+      min: 2,
+    };
+    const element = {
+      input: e.target,
+      errorSpan: DUE_DATE_EDIT_TASK_ERRORR,
+      validation,
+    };
+    onChangeInputField(schema, element, SUBMIT_EDIT_TASK_BTNN);
   });
 };
 export const onRender = (tasks) => {

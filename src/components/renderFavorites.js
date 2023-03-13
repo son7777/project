@@ -1,5 +1,5 @@
 import { addToFavoriteBody } from "../services/domService.js";
-import { favdel } from "../app.js";
+import { favdel, handleAddFav } from "../app.js";
 export const renderFavorites = (favorites) => {
   addToFavoriteBody.innerHTML = "";
   const ul = document.createElement("ul");
@@ -49,7 +49,7 @@ export const renderFavorites = (favorites) => {
       addEventOnDeleteFav(id);
     });
     qut.addEventListener("click", () => {
-      handleAddFav(id, favorites);
+      addOnF(id);
     });
     qut.addEventListener("mouseover", () => {
       qut.classList.add("addd");

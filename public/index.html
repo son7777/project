@@ -176,6 +176,29 @@
 
                 </form>
             </div>
+            <div class=" d-none center" id="edit-bodyy">
+                <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
+                    <div>
+                        <label for="description-fieldd" class="text-primary fw-bolder fs-6">Description</label>
+                        <input type="text" class="form-control mb-2 " autocomplete="off" name="description-editt"
+                            id="description-edit-fieldd" minlength="2" placeholder="one uppercase letter and one
+                            lowercase letter at least 2 letters min" />
+                        <span id="description-edit-error-spann" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label for="due-date-fieldd" class="text-primary fw-bolder fs-6">Due Date</label>
+                        <input type="date" class="form-control mb-2 text-start " name="due-date-edit-fieldd"
+                            id="due-date-edit-fieldd" minlength="2" />
+                        <span id="due-date-edit-error-spann" class="text-danger"></span>
+                    </div>
+                    <input type="button" id="submit-create-task-edit-btnn" value="Submit"
+                        class="btn btn-primary col-12 mb-2" disabled />
+                    <input type="button" id="cancel-create-task-edit-btnn" value="Cancel"
+                        class="btn btn-outline-danger col-12 mb-2" />
+
+
+                </form>
+            </div>
             <div class="center">
                 <div class=" col-12 col-md-10 col-xl-8 border p-2 rounded  mb-3">
                     <div class=" col-12 mb-3 fs-2 fw-bolder text-center border-bottom animatedRainbow ">

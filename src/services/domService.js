@@ -55,6 +55,25 @@ export const SUBMIT_EDIT_TASK_BTN = document.querySelector(
 export const CANCEL_BTN_EDIT = document.querySelector(
   "#cancel-create-task-edit-btn"
 );
+export const EDIT_BODYY = document.querySelector("#edit-bodyy");
+export const DESCRIPTION_EDIT_TASK_FIELDD = document.querySelector(
+  "#description-edit-fieldd"
+);
+export const DESCRIPTION_EDIT_TASK_ERRORR = document.querySelector(
+  "#description-edit-error-spann"
+);
+export const DUE_DATE_EDIE_TASK_FIELDD = document.querySelector(
+  "#due-date-edit-fieldd"
+);
+export const DUE_DATE_EDIT_TASK_ERRORR = document.querySelector(
+  "#due-date-edit-error-spann"
+);
+export const SUBMIT_EDIT_TASK_BTNN = document.querySelector(
+  "#submit-create-task-edit-btnn"
+);
+export const CANCEL_BTN_EDITtT = document.querySelector(
+  "#cancel-create-task-edit-btnn"
+);
 export const EDIT_BODY = document.querySelector("#edit-body");
 export const CREATE_BODY = document.querySelector("#create-body");
 
