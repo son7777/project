@@ -62,9 +62,14 @@ export const handleCancelCreateTask = () => {
   onClearFormFields(SUBMIT_CREATE_TASK_BTN, fields, errorSpans);
 };
 export const handleCancelCreateTaskk = () => {
+      EDIT_BODY.className = "d-none";
+      EDIT_BODYY.className = "d-none";
+      CREATE_BODY.classList = "d-block";
+      CREATE_BODY.classList = "center";
   const fields = [DESCRIPTION_EDIT_TASK_FIELDD, DUE_DATE_EDIE_TASK_FIELDD];
   const errorSpans = [DESCRIPTION_EDIT_TASK_ERRORR, DUE_DATE_EDIT_TASK_ERRORR];
   onClearFormFields(SUBMIT_EDIT_TASK_BTNN, fields, errorSpans);
+  
 };
 
 export const onCreateNewTask = (tasks) => {

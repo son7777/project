@@ -207,8 +207,6 @@ export const handleAddTF = (id) => {
     favorites_Tasks.push(favorite);
     renderFavorites(favorites_Tasks);
     setItemInLocalStorage("fav", JSON.stringify(favorites_Tasks));
-
-    console.log(favorites_Tasks);
     ad_to_favorite_sidebar.style.right = "0px";
   }
 };
@@ -224,7 +222,6 @@ export const handleDeleteTask = (id) => {
 export const favdel = (id) => {
   favorites_Tasks = favorites_Tasks.filter((fav) => fav.id !== id);
   renderFavorites(favorites_Tasks);
-  console.log(favorites_Tasks);
   setItemInLocalStorage("fav", JSON.stringify(favorites_Tasks));
 };
 export const handleAddFav = (id) => {
