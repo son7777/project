@@ -41,6 +41,7 @@ import {
   sortArrayOfObject,
   filterArrayOfObjectsByTerm,
 } from "./utils/algoMethods.js";
+import { renderFavorites } from "./components/renderFavorites.js";
 let scrolled = false;
 button.style.display = "none";
 window.onscroll = () => {
@@ -72,23 +73,22 @@ if (getItemFromLocalStorage("taskM")) {
   let sTasks = [];
   tasks = sTasks;
 }
+export let TASK_MANAGER = new TaskManager();
+let favorites_Tasks;
+TASK_MANAGER.tasks = [...tasks];
+console.log(TASK_MANAGER.tasks);
 //#region הגדרת משתנים גלובליים
 let { pictures } = initialData();
 let counter = 0;
-
-// export let favorites_Tasks;
-// if (!getItemFromLocalStorage("favorites_Tasks")) {
-//   favorites_Tasks = [];
-// } else {
-//   favorites_Tasks = getItemFromLocalStorage("favorites_Tasks");
-// }
-// export let favorites_colors;
-// if (!getItemFromLocalStorage("favorites_colors")) {
-//   favorites_colors = [];
-// } else {
-//   favorites_colors = getItemFromLocalStorage("favorites_colors");
-// }
-
+if (getItemFromLocalStorage("fav")) {
+  const sF = JSON.parse(getItemFromLocalStorage("fav")).map(
+    (f) => new Task(f.description, f.dueDate, f.status)
+  );
+  favorites_Tasks = sF;
+} else {
+  const sF = [];
+  favorites_Tasks = sF;
+}
 //#endregion
 
 render(pictures);
@@ -114,12 +114,13 @@ const onChangeSliderPic = (controller) => {
   startInterval();
 };
 startInterval();
-export let TASK_MANAGER = new TaskManager();
+
 renderTable(tasks);
 if (tasks.length) {
   onRender(tasks);
 }
-
+renderFavorites(favorites_Tasks);
+console.log(favorites_Tasks);
 //#region האזנה לאירועים
 // ניתוב דפים
 HOME_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.HOME));
@@ -182,6 +183,22 @@ export const handleChangeStatus = (id, tasks) => {
   onRender(tasks);
   return tasks;
 };
+export const handleAddTF = (id) => {
+  const favorite = tasks.find((f) => f.id === id);
+  if (!favorite) throw new Error("no favotites found");
+  const favoritecheck = favorites_Tasks.find((f) => f.id === id);
+  if (favoritecheck) {
+    ad_to_favorite_sidebar.style.right = "0px";
+  } else {
+    favorites_Tasks.push(favorite);
+    renderFavorites(favorites_Tasks);
+    setItemInLocalStorage("fav", JSON.stringify(favorites_Tasks));
+
+    console.log(favorites_Tasks);
+    ad_to_favorite_sidebar.style.right = "0px";
+  }
+};
+
 //#region Delete Tasks
 export const handleDeleteTask = (id) => {
   tasks = tasks.filter((task) => task.id !== id);
@@ -190,6 +207,12 @@ export const handleDeleteTask = (id) => {
   setItemInLocalStorage("taskM", JSON.stringify(tasks));
 };
 //#endregion
+export const favdel = (id) => {
+  favorites_Tasks = favorites_Tasks.filter((fav) => fav.id !== id);
+  renderFavorites(favorites_Tasks);
+  console.log(favorites_Tasks);
+  setItemInLocalStorage("fav", JSON.stringify(favorites_Tasks));
+};
 
 //#region Edit Tasks
 export const onSubmitEditTask = (id) => {
@@ -231,20 +254,32 @@ const debouncedInput = (e) => {
 };
 ACTIV_TASK_BTN.addEventListener("click", () => handleActivTasks(tasks));
 const handleActivTasks = (tasks) => {
-  if (ACTIV_TASK_BTN.value === "CLICK-TO-SHOW-ONLY-ACTIV-TASKS") {
-    let newT = tasks
-      .filter(
-        (task) =>
-          new Date(task.dueDate.split("/").reverse().join("-")).getTime() >
-          new Date().getTime()
-      )
-      .filter((t) => t.status === "Uncompleted");
-    ACTIV_TASK_BTN.value = "CLICK-TO-SHOW-ALL-TASKS";
-    renderTable(newT);
-    onRender(newT);
-  } else {
-    ACTIV_TASK_BTN.value = "CLICK-TO-SHOW-ONLY-ACTIV-TASKS";
-    renderTable(tasks);
-    onRender(tasks);
+  let check = false;
+  tasks.forEach((task) => {
+    if (
+      new Date(task.dueDate.split("/").reverse().join("-")).getTime() <
+        new Date().getTime() ||
+      task.status === "Completed"
+    ) {
+      check = true;
+    }
+  });
+  if (check) {
+    if (ACTIV_TASK_BTN.value === "CLICK-TO-SHOW-ONLY-ACTIV-TASKS") {
+      let newT = tasks
+        .filter(
+          (task) =>
+            new Date(task.dueDate.split("/").reverse().join("-")).getTime() >
+            new Date().getTime()
+        )
+        .filter((t) => t.status === "Uncompleted");
+      ACTIV_TASK_BTN.value = "CLICK-TO-SHOW-ALL-TASKS";
+      renderTable(newT);
+      onRender(newT);
+    } else {
+      ACTIV_TASK_BTN.value = "CLICK-TO-SHOW-ONLY-ACTIV-TASKS";
+      renderTable(tasks);
+      onRender(tasks);
+    }
   }
 };

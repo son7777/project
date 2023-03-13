@@ -16,7 +16,7 @@ import {
 } from "./domService.js";
 import useForm from "./formService.js";
 import { Task } from "../models/taskManagerModel.js";
-import { handleChangeStatus, handleDeleteTask } from "../app.js";
+import { handleChangeStatus, handleDeleteTask, handleAddTF } from "../app.js";
 import { setItemInLocalStorage } from "../services/localStorageService.js";
 import { onSubmitEditTask } from "../app.js";
 
@@ -165,6 +165,7 @@ export const onRender = (tasks) => {
     addEventOnDelete(task.id);
     addOnEditTask(tasks, task.id);
     addChangeStatus(task.id, tasks);
+    addToFav(task.id, tasks);
   });
 };
 const addEventOnDelete = (id) => {
@@ -179,4 +180,8 @@ const addOnEditTask = (tasks, id) => {
 const addChangeStatus = (id, tasks) => {
   const checkboxbtn = document.getElementById(`checkbox${id}`);
   checkboxbtn.addEventListener("click", () => handleChangeStatus(id, tasks));
+};
+const addToFav = (id, tasks) => {
+  const addTF = document.getElementById(`addTF${id}`);
+  addTF.addEventListener("click", () => handleAddTF(id, tasks));
 };

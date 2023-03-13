@@ -1,6 +1,7 @@
 //#region nav links
 export const HOME_PAGE_LINK = document.querySelector("#home-link");
 export const TASKM_PAGE_LINK = document.querySelector("#taskM-page-link");
+
 export const APP_LINK = document.querySelector("#app-link-container");
 //#endregion
 //#region pages
