@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/images/icons8-stat-64.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../src/app.js" type="module"></script>
+    <title>SPA PROJECT</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bi-list-task ps-2 fs-3 text-primary "
+            style="background-color: blue; font-family: fantasy;" aria-label="Fifth navbar example">
+            <div class="container-fluid">
+                <span tabindex="1" id="home-link" class="navbar-brand cursor fs-3 hover"
+                    style="font-family:fantasy;">HOME</span>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse " id="navbarsExample05">
+                    <div class="d-lg-flex justify-content-between col-12">
+                        <div>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <span class="nav-link active cursor" aria-current="page" id="taskM-page-link"
+                                        tabindex="2">TASK-M</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul id="app-link-container" class=" d-none">
+                                <li class="nav-item"><span id="add-to-favorite-link" class="nav-link active cursor "
+                                        aria-current="page" tabindex="4">FAVORITES<img
+                                            src="./assets/images/add-to-favorite (1).png" alt="add-to-favorite"
+                                            width="38px" class="ms-1"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- פופ אפ שירות לקוחות -->
+        <div class=" popup center ">
+            <div class=" popup-inner col-11 col-md-10 col-xl-8 ">
+                <span class="close-icon-2"><i class="bi-x" style="color:whitesmoke;display:block"></i></span>
+                <div class="img">
+                    <img src="./assets/images/skyscraper.png" alt="home">
+                </div>
+                <div class="text  mb-4 mt-2 ">
+                    <div class="group ">
+                        <h4>Leave details</h4>
+                    </div>
+                    <form action="">
+                        <input id="f-name-input" type="text" placeholder="f-name" class="mt-3  mt-lg-5 mt-xl-6"
+                            minlength="2" autocomplete="off">
+                        <input id="phone-input" type="text" placeholder="phone" minlength="2" maxlength="10"
+                            autocomplete="off">
+                        <input class="btn-p mt-3  mt-lg-5 mt-xl-6" type="button" value="send">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- כפתור שירות לקוחות -->
+        <button type="button" class="btn " data-toggle="tooltip" data-placement="bottom"
+            title="Click For Customer Service"><img style="display: none;" id="customerServiceBtn"
+                class="col-2 col-md-1 col-xl-1  " src="./assets/images/customerService.png"
+                alt="customerServiceBtn"></button>
+        <!-- סיידבר מועדפים -->
+        <div class="ad-to-favorite-sidebar">
+            <span class="close-icon "><i class="bi-x" style="color:whitesmoke;display:block"></i></span>
+            <div class="ad-to-favorite-title ">
+                <h4>FAVORITES
+                </h4>
+            </div>
+            <div class="ad-to-favorite-body center" id="ad-To-Favotite-Body" style="width:100%; ">
+            </div>
+        </div>
+        <!-- דף הבית -->
+        <div id="home-page" class="d-block showButton">
+            <!-- הכותרת של דף הבית -->
+            <div class="center pt-3 mb-4">
+                <div class="col-12 col-md-10 col-xl-8">
+                    <h1 id="home-page-title" class="text-center display-4 fw-bold mb-4 animatedRainbow">
+                        HOME PAGE</h1>
+                    <h2 id="home-page-subtitle" class="fs-3 animatedRainbow ps-2 ">TRY THE APPLICATION</h2>
+                    <hr />
+                </div>
+            </div>
+            <!-- מצגת משימות באפליקציה -->
+            <div class="center ">
+                <div class="col-12 col-md-10 col-xl-8 ">
+                    <figure>
+                        <img src="https://cdn.pixabay.com/photo/2022/03/12/19/14/sea-7064686_960_720.jpg" alt="beach"
+                            class="img-fluid border " width="100%" id="slider-image">
+
+                        <figcaption class="figcaption ">
+                            NAME: <span id="slider-credits">son-m</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="center pb-4 ">
+                <div id="slider-prev-btn" class="btn btn-outline-primary mx-2 ">Prev</div>
+                <div id="slider-next-btn" class="btn btn-outline-primary mx-2">Next</div>
+            </div>
+        </div>
+        <!-- דף מנהל משימות -->
+        <div id="taskM-page" class="d-none">
+            <!-- הכותרת של דף מנהל משימות -->
+            <div class="center pt-3 ">
+                <div class="col-12 col-md-10 col-xl-8">
+                    <h1 id="about-page-title" class="text-center text-decoration-underline display-4  fw-bold mb-3
+                        animatedRainbow">Task Manager
+                    </h1>
+                    <h2 id="about-page-subtitle" class="ps-2 fs-3 css-flame-text  fw-bolder">Here you can create
+                        your task
+                        manager
+                    </h2>
+                    <hr />
+                </div>
+            </div>
+            <div class="center" id="create-body">
+                <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
+                    <div>
+                        <label for="description-field" class="text-primary fw-bolder fs-5">Description</label>
+                        <input type="text" class="form-control mb-2 fs-6" autocomplete="off" name="description"
+                            id="description-field" minlength="2"
+                            placeholder="one uppercase letter one lowercase letter at least 2 letters min" />
+                        <span id="description-error-span" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label for="due-date-field" class="text-primary fw-bolder fs-5">Due Date</label>
+                        <input type="date" class="form-control mb-2 text-start " name="due-date-field"
+                            id="due-date-field" minlength="2" />
+                        <span id="due-date-error-span" class="text-danger"></span>
+                    </div>
+                    <input type="button" id="submit-create-task-btn" value="Submit" class="btn btn-primary col-12 mb-2"
+                        disabled />
+                    <input type="button" id="cancel-create-task-btn" value="Cancel"
+                        class="btn btn-outline-danger col-12 mb-2" />
+
+
+                </form>
+            </div>
+            <div class=" d-none center" id="edit-body">
+                <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
+                    <div>
+                        <label for="description-field" class="text-primary fw-bolder fs-5">Description</label>
+                        <input type="text" class="form-control mb-2 fs-6 " autocomplete="off" name="description-edit"
+                            id="description-edit-field" minlength="2" placeholder="one uppercase letter and 
+                            lowercase letter at least 2 letters min" />
+                        <span id="description-edit-error-span" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label for="due-date-field" class="text-primary fw-bolder fs-5">Due Date</label>
+                        <input type="date" class="form-control mb-2 text-start fs-6 " name="due-date-edit-field"
+                            id="due-date-edit-field" minlength="2" />
+                        <span id="due-date-edit-error-span" class="text-danger"></span>
+                    </div>
+                    <input type="button" id="submit-create-task-edit-btn" value="Submit"
+                        class="btn btn-primary col-12 mb-2" disabled />
+                    <input type="button" id="cancel-create-task-edit-btn" value="Cancel"
+                        class="btn btn-outline-danger col-12 mb-2" />
+
+
+                </form>
+            </div>
+            <div class=" d-none center" id="edit-bodyy">
+                <form class="col-12 col-md-10 col-xl-8 border p-2 rounded">
+                    <div>
+                        <label for="description-fieldd" class="text-primary fw-bolder fs-5">Description</label>
+                        <input type="text" class="form-control mb-2 fs-6" autocomplete="off" name="description-editt"
+                            id="description-edit-fieldd" minlength="2" placeholder="one uppercase letter and
+                            lowercase letter at least 2 letters min" />
+                        <span id="description-edit-error-spann" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label for="due-date-fieldd" class="text-primary fw-bolder fs-6">Due Date</label>
+                        <input type="date" class="form-control mb-2 text-start " name="due-date-edit-fieldd"
+                            id="due-date-edit-fieldd" minlength="2" />
+                        <span id="due-date-edit-error-spann" class="text-danger"></span>
+                    </div>
+                    <input type="button" id="submit-create-task-edit-btnn" value="Submit"
+                        class="btn btn-primary col-12 mb-2" disabled />
+                    <input type="button" id="cancel-create-task-edit-btnn" value="Cancel"
+                        class="btn btn-outline-danger col-12 mb-2" />
+
+
+                </form>
+            </div>
+            <div class="center">
+                <div class=" col-12 col-md-10 col-xl-8 border p-2 rounded  mb-3">
+                    <div class=" col-12 mb-3 fs-2 fw-bolder text-center border-bottom animatedRainbow ">
+                        YOUR TASKS
+                    </div>
+                    <div class="center mb-2 ">
+                        <i id="sort-down-icon"
+                            class="bi bi-sort-alpha-down-alt fs-3 p-1 cursor bg-opacity-50 bg-primary mx-2"></i>
+                        <i id="sort-up-icon" class="bi bi-sort-alpha-down fs-3 p-1 cursor bg-opacity-50 bg-primary"></i>
+                    </div>
+                    <!-- שדה החיפוש -->
+                    <div id="search-bar-container">
+                        <div class="container mb-2 ">
+                            <input type="text" placeholder="Search tasks"
+                                class="form-control text-center fs-5 fw-bold text-primary" id="search-input">
+                        </div>
+                    </div>
+
+                    <input type="button" id="activ-tasks-btn" value="CLICK-TO-SHOW-ONLY-ACTIV-TASKS"
+                        class="btn btn-dark col-12 mb-2" />
+                    <div id="empty-tasks-list"
+                        style="font-weight: bolder;color: red; margin-bottom: 10px; font-size: 20px;"
+                        class=" text-center d-none">
+                        There are no tasks to display...
+                    </div>
+                    <div id="table" class="d-none ">
+                        <table class="container table bg-opacity-25 bg-primary">
+                            <thead>
+                                <th class="col-sm-1 ">#</th>
+                                <th class="col-sm-5">Description</th>
+                                <th class="col-sm-2" style="padding-left:18px;">Due Date</th>
+                                <th class="col-sm-1">Status</th>
+                                <th class="col-sm-1">Edit</th>
+                                <th class="col-sm-1">Delete</th>
+                                <th class="col-sm-1">Like</th>
+                            </thead>
+                            <tbody class="" id="tasks-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- דף שגיאה 404 -->
+        <div id="error-404-page" class="d-none">
+            <!-- הכותרת של דף שגיאה  -->
+            <div class="center pt-3">
+                <div class="col-12 col-md-10 col-xl-8">
+                    <h1 id="about-page-title" class="text-center display-4">ERROR 404</h1>
+                    <h2 id="about-page-subtitle" class="fs-5">Page not found</h2>
+                    <hr />
+                    <p id="return-to-home-page-link" class="cursor text-primary">click to return to home
+                        page</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="border-top pt-3 center  " style="background-color: blue; ">
+        <p class="text-light">Created By son mizrahi &copy;</p>
+    </footer>
+</body>
+
+</html>

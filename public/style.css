@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cursor {
+  cursor: pointer;
+}
+main {
+  min-height: 95vh;
+  background-color: rgba(0, 163, 251, 0.607);
+}
+.figcaption {
+  transform: translateY(-37px);
+  font-weight: 700;
+  background-color: #6c757da1;
+  padding-left: 1rem;
+}
+/* כפתור שירות לקוחות */
+#myButton2 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+nav span:hover {
+  background-color: rgba(0, 163, 251, 0.607);
+}
+/* // */
+/* פופאפ שירות לקוחות */
+.popup {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  transition: all ease 0.8s;
+  z-index: 100;
+  left: -1600px;
+  overflow: hidden;
+}
+.popup-inner {
+  max-height: 500px;
+  background: radial-gradient(white, rgba(0, 163, 251, 0.607));
+  overflow: hidden;
+  position: absolute;
+  top: 10%;
+}
+.popup-inner .img,
+.popup-inner .text {
+  width: 50%;
+  float: left;
+}
+.popup-inner .img img {
+  width: 100%;
+  height: 500px;
+  object-fit: 100% 100%;
+}
+.popup-inner .text {
+  padding: 100px 50px;
+}
+
+.popup-inner .text {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  color: whitesmoke;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: fantasy;
+}
+
+.popup-inner .text form {
+  text-align: center;
+  font-family: fantasy;
+}
+
+.popup-inner .text form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #9b9b9b;
+  letter-spacing: 2px;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  text-align: center;
+  outline: none;
+  font-weight: 500;
+  box-shadow: 0 12px 20px #00c2ff6e;
+}
+
+.popup-inner .text .btn-p {
+  border: none;
+  max-width: 210px;
+
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(55, 141, 216);
+  color: #fff;
+  font-size: 16px;
+  padding: 14px 39px;
+  border-radius: 50px;
+  letter-spacing: 4px;
+  box-shadow: 0 12px 20px #00c2ff6e;
+}
+.close-icon-2 {
+  position: absolute;
+  padding: 20px;
+  left: 50%;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 500;
+}
+.popup-inner .text .btn-p:hover {
+  background-color: #00e2ff;
+}
+
+/* סיידבר הוספה למודעים */
+
+.ad-to-favorite-sidebar {
+  position: fixed;
+  background: radial-gradient(white, rgba(0, 163, 251, 0.85));
+  top: 0;
+  width: 350px;
+  height: 100%;
+  text-align: center;
+
+  box-shadow: 0 0 35px #00c2ff6e;
+  overflow-y: auto;
+  z-index: 100;
+  transition: all ease 0.5s;
+  right: -400px;
+}
+.ad-to-favorite-sidebar .ad-to-favorite-title h4 {
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 4px;
+  padding: 40px 10px 25px;
+  border-bottom: 1.8px solid white;
+}
+.ad-to-favorite-sidebar .ad-to-favorite-body {
+  padding: 10px 0;
+}
+.close-icon {
+  position: absolute;
+  left: 20px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+#checkbox {
+  width: 30px;
+}
+.hivhuv {
+  -webkit-animation: hivhuv 2.1s linear infinite;
+  -moz-animation: hivhuv 2.1s linear infinite;
+  -ms-animation: hivhuv 2.1s linear infinite;
+  -o-animation: hivhuv 2.1s linear infinite;
+  animation: hivhuv 2.1s linear infinite;
+}
+
+@-webkit-keyframes hivhuv {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  50.01% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes hivhuv {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  50.01% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes hivhuv {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  50.01% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes hivhuv {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  50.01% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hivhuv {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  50.01% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.css-flame-text {
+  background-image: linear-gradient(0deg, #f00 25%, #ffb300 60%);
+  color: #0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  font-weight: bold;
+}
+.animatedRainbow {
+  font-size: 42px;
+  font-family: Arial Black, Gadget, sans-serif;
+  background-image: -webkit-linear-gradient(
+    left,
+    #f00,
+    #ff2b00,
+    #f50,
+    #ff8000,
+    #fa0,
+    #ffd500,
+    #ff0,
+    #d4ff00,
+    #af0,
+    #80ff00,
+    #5f0,
+    #2bff00,
+    #0f0,
+    #00ff2a,
+    #0f5,
+    #00ff80,
+    #0fa,
+    #00ffd5,
+    #0ff,
+    #00d5ff,
+    #0af,
+    #0080ff,
+    #05f,
+    #002aff,
+    #00f,
+    #2b00ff,
+    #50f,
+    #8000ff,
+    #a0f,
+    #d400ff,
+    #f0f,
+    #ff00d4,
+    #f0a,
+    #ff0080,
+    #f05,
+    #ff002b,
+    #f00
+  );
+  -webkit-animation: animatedBackground_a 5s linear infinite alternate;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #0000;
+  background-clip: text;
+}
+
+@keyframes animatedBackground_a {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -500px 0;
+  }
+}
+@keyframes glow-anim {
+  0% {
+    box-shadow: 0 0 15px #ff0101;
+  }
+  100% {
+    box-shadow: 0px 0px 15px transparent;
+    border-width: 5px;
+  }
+}
+
+.dangerrr {
+  cursor: pointer;
+  border: 2px solid red;
+  border-radius: 50%;
+  animation: glow-anim 1s ease infinite;
+  width: 10px;
+  height: 10px;
+  position: relative;
+}
+.addd {
+  cursor: pointer;
+  border: 2px solid blue;
+  border-radius: 50%;
+  animation: glow-anim 1s ease infinite;
+  width: 10px;
+  height: 10px;
+  position: relative;
+}
